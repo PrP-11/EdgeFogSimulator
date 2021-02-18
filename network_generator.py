@@ -184,7 +184,7 @@ plt.figure(1, figsize=(20,20))
 node_name_labels = nx.get_edge_attributes(G, "name")
 nx.draw_networkx_nodes(G,pos,nodelist=edge_nodes,node_color='b', node_size=300 ,alpha=0.7)
 nx.draw_networkx_nodes(G,pos,nodelist=fog_nodes,node_color='r', node_size=500, node_shape='s',alpha=0.7)
-nx.draw_networkx_labels(G, pos, edge_labels=node_name_labels)
+nx.draw_networkx_labels(G, pos, labels=node_name_labels)
 
 edge_weight_labels = nx.get_edge_attributes(G, "weight")
 
