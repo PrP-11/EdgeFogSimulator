@@ -65,7 +65,7 @@ def print_network_cost(index, connections, command):
                 continue
             if(index[j][0]==job2):
                 device2 = index[j][1]
-        cost = device_conn[device1][device2]
+        cost = job_conn[device1][device2]*device_conn[device1][device2]
         net_cost += cost
     if (command==1):
         print("Networking cost: %d" % net_cost)
@@ -99,15 +99,15 @@ for p in duplicates:
 connections = []
 for i, lst in enumerate(job_conn):
     for j, conn in enumerate(lst):
-        if conn == 1:
+        if conn > 0:
             if i<j:
                 connections.append([i, j])
             else:
                 connections.append([j, i])
 
 #remove duplicate both ways connections
-b_set = set(tuple(x) for x in connections)
-connections = [ list(x) for x in b_set ]
+# b_set = set(tuple(x) for x in connections)
+# connections = [ list(x) for x in b_set ]
 #print(connections)
 
 #####Apply Hungarian assignment algorithm of processing cost##########
